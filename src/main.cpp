@@ -80,21 +80,6 @@ int main() {
     resultSub = num3.SUB(num4);
     std::cout << "Subtraction result: " << resultSub.getHex() << std::endl;
     
-    BigInteger num7;
-    num1.setHex("123456789ABCDEF0");
-
     
-    BigInteger result7 = num7.shiftR(4);
-    std::cout << "Shift Right result: " << result7.getHex() << std::endl;  // Should output "0123456789ABCDEF"
-
-    
-    BigInteger num8;
-    num2.setHex("123456789ABCDEF0");
-
-    
-    BigInteger result8 = num8.shiftL(4);
-    std::cout << "Shift Left result: " << result8.getHex() << std::endl;  // Should output "23456789ABCDEF00"
-
-
     return 0;
 }

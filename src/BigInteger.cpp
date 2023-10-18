@@ -110,12 +110,12 @@ BigInteger BigInteger::shiftR(int n) const {
     BigInteger result;
     result.data = data;
 
-    // Shift the individual blocks to the right
+    
     for (size_t i = 0; i < result.data.size(); i++) {
         result.data[i] >>= n;
 
         if (i < result.data.size() - 1) {
-            // For the first block (i == 0), fill with zeros on the left side
+            
             result.data[i] |= (data[i + 1] & ((1ULL << n) - 1)) << (sizeof(data[i]) * 8 - n);
         }
     }
@@ -127,12 +127,12 @@ BigInteger BigInteger::shiftL(int n) const {
     BigInteger result;
     result.data = data;
 
-    // Shift the individual blocks to the left
+    
     for (size_t i = 0; i < result.data.size(); i++) {
         result.data[i] <<= n;
 
         if (i > 0) {
-            // For the last block (i == result.data.size() - 1), fill with zeros on the right side
+           
             result.data[i] |= (data[i - 1] >> (sizeof(data[i]) * 8 - n));
         }
     }
@@ -144,7 +144,7 @@ BigInteger BigInteger::shiftL(int n) const {
 
 BigInteger BigInteger::ADD(const BigInteger& other) const {
     BigInteger result;
-    result.data.resize(std::max(data.size(), other.data.size()) + 1);  // Adding one extra block for potential carry.
+    result.data.resize(std::max(data.size(), other.data.size()) + 1);   
 
     unsigned long carry = 0;
     for (size_t i = 0; i < result.data.size(); i++) {
@@ -156,7 +156,7 @@ BigInteger BigInteger::ADD(const BigInteger& other) const {
 
         
         if (sum < data[i] && sum < other.data[i]) {
-            carry = 1;  // If the sum is less than both input values, there's a carry.
+            carry = 1; 
         }
     }
 
@@ -213,7 +213,7 @@ bool BigInteger::operator>=(const BigInteger& other) const {
         }
     }
 
-    return true;  // If they are equal
+    return true;  
 }
 
 bool BigInteger::isZero() const {
